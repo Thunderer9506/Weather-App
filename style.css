@@ -139,7 +139,7 @@ body {
 }
 
 .weather-icon {
-    font-size: 4rem;
+    height: 5rem;
     animation: float 3s ease-in-out infinite;
 }
 
