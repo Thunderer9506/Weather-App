@@ -32,7 +32,7 @@ document.getElementById('weatherForm').addEventListener('submit', function(e) {
 });
 
 async function getLatLon(city){
-    const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ec99aec66d6d231466250cf9fb84d219`);
+    const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid= {Your App Id} `); // Open Weather API Id
     try{
         if (response.ok) {
             const data = await response.json();
@@ -51,7 +51,7 @@ async function getLatLon(city){
 }
 
 async function getData(lat,lon) {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ec99aec66d6d231466250cf9fb84d219&units=metric`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid= {Your App Id} &units=metric`); // Open Weather API Id
     try{
         if (response.ok) {
             const data = await response.json();
