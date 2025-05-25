@@ -71,7 +71,7 @@
 
 1. **Clone or Download**
    ```bash
-   git clone https://github.com/Thunderer9506/weather-app.git
+   git clone https://github.com/Thunderer9506/Weather-App.git
    cd weather-app
    ```
 
@@ -265,8 +265,8 @@ We welcome contributions! Here's how you can help:
 
 ## 📞 Contact & Support
 
-- **Issues**: [GitHub Issues](https://github.com/Thunderer9506/weather-app/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/Thunderer9506/weather-app/discussions)
+- **Issues**: [GitHub Issues](https://github.com/Thunderer9506/Weather-app/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Thunderer9506/Weather-app/discussions)
 - **LinkedIn**: [Linked In Profile](https://www.linkedin.com/in/shaurya-srivastava001/)
 
 ---
