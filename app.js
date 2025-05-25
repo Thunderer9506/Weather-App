@@ -1,33 +1,3 @@
-// https://api.openweathermap.org/data/2.5/weather?lat=28.6711527&lon=77.4120356&appid=ec99aec66d6d231466250cf9fb84d219&units=metric
-// http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=ec99aec66d6d231466250cf9fb84d219
-
-// List of invalid cities for simulation
-// const invalidCities = ['xyz', 'invalidcity', 'notacity', 'fakecity', '123', ''];
-
-// document.getElementById('weatherForm').addEventListener('submit', function(e) {
-//     e.preventDefault();
-    
-//     const cityInput = document.getElementById('cityInput');
-//     const city = cityInput.value.trim();
-    
-//     if (city) {
-//         showLoading();
-//         hideError();
-//         hideWeatherCard();
-        
-//         // Simulate API call with setTimeout
-//         setTimeout(() => {
-//             hideLoading();
-            
-//             // Check if city is in invalid list or too short
-//             if (invalidCities.includes(city.toLowerCase()) || city.length < 2) {
-//                 showError();
-//             } else {
-//                 showWeatherData(city);
-//             }
-//         }, 1500);
-//     }
-// });
 
 document.getElementById('weatherForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -128,23 +98,24 @@ function hideWeatherCard() {
 
 function showWeatherData(data) {
     // Mock weather data
-    const mockData = {
-        location: city,
-        temperature: Math.floor(Math.random() * 30) + 5,
-        description: ['Sunny', 'Cloudy', 'Rainy', 'Partly Cloudy'][Math.floor(Math.random() * 4)],
-        feelsLike: Math.floor(Math.random() * 30) + 5,
-        humidity: Math.floor(Math.random() * 40) + 40,
-        windSpeed: Math.floor(Math.random() * 20) + 5,
-        visibility: Math.floor(Math.random() * 15) + 5
+    const Data = {
+        location: data["name"],
+        temperature: data["main"]["temp"],
+        description: data["weather"][0]["main"],
+        feelsLike: data["main"]["feels_like"],
+        humidity: data["main"]["humidity"],
+        windSpeed: data["wind"]["speed"],
+        visibility: data["visibility"],
+        icon: data["weather"][0]["icon"]
     };
-
-    document.getElementById('location').textContent = mockData.location;
-    document.getElementById('temperature').textContent = mockData.temperature + '°C';
-    document.getElementById('description').textContent = mockData.description;
-    document.getElementById('feelsLike').textContent = mockData.feelsLike + '°C';
-    document.getElementById('humidity').textContent = mockData.humidity + '%';
-    document.getElementById('windSpeed').textContent = mockData.windSpeed + ' km/h';
-    document.getElementById('visibility').textContent = mockData.visibility + ' km';
-
+    const image = 'http://api.openweathermap.org/img/w/'+Data.icon+'.png'
+    document.getElementById('location').textContent = Data.location;
+    document.getElementById('temperature').textContent = Data.temperature + '°C';
+    document.getElementById('description').textContent = Data.description;
+    document.getElementById('feelsLike').textContent = Data.feelsLike + '°C';
+    document.getElementById('humidity').textContent = Data.humidity + '%';
+    document.getElementById('windSpeed').textContent = Data.windSpeed + ' km/h';
+    document.getElementById('visibility').textContent = Data.visibility/1000 + ' km';
+    document.querySelector('.weather-icon').setAttribute("src", image)
     document.getElementById('weatherCard').style.display = 'block';
 }
